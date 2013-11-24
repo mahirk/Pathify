@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HI</title>
+    <script src="Scripts/jquery_min.js"></script>
+    <script type="text/javascript">
+        $.getJSON("cats.js", function (data) {
+            var items = [];
+            $.each(data, function (key, val) {
+                items.push("<div id='" + key + "'>" + val + "</div>");
+            });
+
+            $("<div />", {
+                "class": "my-new-list",
+                html: items.join("")
+            }).appendTo("body");
+        });
+    </script>   
+</head>
+<body>
+     
+</body>
+</html>

@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="product" content="Pathify">
+    <meta name="description" content="4 year degree, follow us">
+    <meta name="author" content="Gordon, Karan, Ty, Saptak, Megh, Mahir">
+    <link href="Scripts/metro.css" rel="stylesheet">
+    <link href="Scripts/metro/js/prettify/prettify.css" rel="stylesheet">
+
+    <!-- Load JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="Scripts/metro/js/jquery/jquery.widget.min.js"></script>
+    <script src="Scripts/metro/js/jquery/jquery.mousewheel.js"></script>
+    <script src="Scripts/metro/js/prettify/prettify.js"></script>
+
+    <!-- Local JavaScript -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            var i = 0;
+            var datapoint = new Array();
+            $("#main").bind('click', $.proxy(function (event) {
+                var status = $(event.target).attr('id');
+                
+                if (status == 'main' || status == 'head' || status == 'menu' || status == 'restart') {
+                    window.location = 'index.html';
+                    return false;
+                } else if(status == 'picks'){
+
+                } else if (status == 'next') {
+                    var div = document.getElementById("menu");
+                    var arr = document.getElementById("arrow");
+                    var img = document.getElementById("next");
+                    var restr = document.getElementById("restart");
+                    div.parentNode.removeChild(div);
+                    arr.parentNode.removeChild(arr);
+                    img.parentNode.removeChild(img);
+                    restr.parentNode.removeChild(restr);
+                    i = 0;
+                    var results = [[["Philosophy"], ["Philosophy"], ["Computer Science", "Math", "Philosophy"], ["Computer Science", "Math"], ["Philosophy", "Drama", "Music"], ["HCDE", "Informatics"], ["Philosophy", "Foreign Language"], ["Operations Management"], ["Philosophy", "History"], ["Philosophy", "Biology"], ["Philosophy", "Sociology"], ["Economics", "Psychology", "Education"]], [["Philosophy"], ["English", "Communication"], ["Philosophy"], ["Communication", "Applied Math"], ["English", "Drama"], ["Design", "HCDE", "Informatics"], ["Foreign Language"], ["Marketing", "Operations Management"], ["History", "English"], ["Communication", "Biology"], ["Foreign Language", "English", "Philosophy"], ["Psychology", "Education", "Sociology"]], [["Computer Science", "Math", "Philosophy"], ["Philosophy"], ["Math", "Physics", "Applied Math"], ["Computer Science", "Math", "Applied Math"], ["Math", "Music", "Applied Math"], ["Math", "HCDE", "Applied Math"], ["Math", "Foreign Language", "Statistics"], ["Operations Management", "Applied Math"], ["Math", "History", "Statistics"], ["Math", "Biology", "Applied Math"], ["Statistics", "International Studies"], ["Economics", "Applied Math"]], [["Computer Science", "Math"], ["Communication", "Applied Math"], ["Computer Science", "Math", "Applied Math"], ["Computer Science", "Applied Math", "HCDE"], ["Computer Science", "Applied Math", "Music"], ["Informatics", "HCDE", "Design"], ["Computer Science", "Foreign Language", "HCDE"], ["Informatics", "Applied Math", "Operations Management"], ["Computer Science", "History", "Informatics"], ["Applied Math", "Bioengineering", "Physics"], ["Computer Science", "Philosophy", "HCDE"], ["Applied Math", "Education", "Informatics"]], [["Philosophy", "Drama", "Music"], ["English", "Drama"], ["Math", "Music", "Applied Math"], ["Computer Science", "Applied Math", "Music"], ["Drama", "Music"], ["Drama", "Music", "Design"], ["Foreign Language", "Drama", "Music"], ["Drama", "Music", "Marketing"], ["Drama", "Music", "History"], ["Drama", "Music", "Biology"], ["Sociology", "Drama", "Music"], ["Education", "Drama", "Music"]], [["HCDE", "Informatics"], ["Design", "HCDE", "Informatics"], ["Math", "HCDE", "Applied Math"], ["Informatics", "HCDE", "Design"], ["Drama", "Music", "Design"], ["HCDE", "Design", "Art"], ["Design", "Informatics", "English"], ["Marketing", "Art", "Informatics"], ["Informatics", "History", "Art"], ["Informatics", "Biology", "Art"], ["Informatics", "Drama", "Art"], ["Informatics", "Education", "Art"]], [["Philosophy", "Foreign Language"], ["Foreign Language"], ["Math", "Foreign Language", "Statistics"], ["Computer Science", "Foreign Language", "HCDE"], ["Foreign Language", "Drama", "Music"], ["Design", "Informatics", "English"], ["Foreign Language", "English", "Drama"], ["Foreign Language", "English", "Marketing"], ["History", "Foreign Language", "English"], ["Foreign Language", "Biology", "English"], ["Music", "Drama", "Foreign Language"], ["Sociology", "Foreign Language", "Education"]], [["Operations Management"], ["Marketing", "Operations Management"], ["Operations Management", "Applied Math"], ["Informatics", "Applied Math", "Operations Management"], ["Drama", "Music", "Marketing"], ["Marketing", "Art", "Informatics"], ["Foreign Language", "English", "Marketing"], ["Marketing", "Finance", "Accounting"], ["Marketing", "Economics", "History"], ["Finance", "Biology", "Physics"], ["Marketing", "International Studies", "Foreign Language"], ["Marketing", "Education", "Economics"]], [["Philosophy", "History"], ["History", "English"], ["Math", "History", "Statistics"], ["Computer Science", "History", "Informatics"], ["Drama", "Music", "History"], ["Informatics", "History", "Art"], ["History", "Foreign Language", "English"], ["Marketing", "Economics", "History"], ["History"], ["History", "Biology"], ["International Studies", "History"], ["Sociology", "History", "Economics"]], [["Philosophy", "Biology"], ["Communication", "Biology"], ["Math", "Biology", "Applied Math"], ["Applied Math", "Bioengineering", "Physics"], ["Drama", "Music", "Biology"], ["Informatics", "Biology", "Art"], ["Foreign Language", "Biology", "English"], ["Finance", "Biology", "Physics"], ["History", "Biology"], ["Biology", "Chemistry", "Physics"], ["Biology", "International Studies"], ["Education", "Biology", "Physics"]], [["Philosophy", "Sociology"], ["Foreign Language", "English", "Philosophy"], ["Statistics", "International Studies"], ["Computer Science", "Philosophy", "HCDE"], ["Sociology", "Drama", "Music"], ["Informatics", "Drama", "Art"], ["Music", "Drama", "Foreign Language"], ["Marketing", "International Studies", "Foreign Language"], ["International Studies", "History"], ["Biology", "International Studies"], ["International Studies", "Sociology", "Foreign Language"], ["Sociology", "International Studies", "Economics"]], [["Economics", "Psychology", "Education"], ["Psychology", "Education", "Sociology"], ["Economics", "Applied Math"], ["Applied Math", "Education", "Informatics"], ["Education", "Drama", "Music"], ["Informatics", "Education", "Art"], ["Sociology", "Foreign Language", "Education"], ["Marketing", "Education", "Economics"], ["Sociology", "History", "Economics"], ["Education", "Biology", "Physics"], ["Sociology", "International Studies", "Economics"], ["Psychology", "Sociology", "Education"]]];
+                        var tiles = [];
+                        var j = 1;
+                        console.log(datapoint[0]);
+                        var temp = new Array();
+                        temp.push(results[datapoint[0]][datapoint[1]]);
+                        var majors = new Array();
+                        for(var r =)
+                        majors.push(temp[0][0]);
+                        console.log(majors);
+                        for (var j = 0; j < majors.length; j++) {
+                            tiles.push("<div id='" + j + "tile" + "' class ='" + "block" + "' style= '" + "background: url(Images/" + ".png)" + "'>" + "<p class = '" + "label" + "'>" + majors[j] + "</p>" + "</div>");   
+                        }
+                        $("<div />", {
+                            "class": "tile",
+                            "id": "menu",
+                            html: tiles.join("")
+                        }).appendTo("#main");
+                    
+                    
+                } else {
+                    if (i < 2) {
+                      //alert(index);
+                        $("#" + status).css("outline", "#39275B solid 5px");
+                        var index = parseInt(status) - 1;
+                        datapoint.push(index);
+                        //console.log(datapoint);
+                        
+                        i++;
+                        if (i == 2) {
+                            var img = document.getElementById("picks")
+                            img.parentNode.removeChild(img);
+                            $("<div />", {
+                                "id": "bottom",
+                            }).appendTo("#main");
+                            $("<img />", {
+                                "align": "left",
+                                "id": "restart",
+                                "class": "next",
+                                "src": "../Images/restart.png"
+                            }).appendTo("#bottom");
+                            $("<img />", {
+                                "align": "right",
+                                "id": "next",
+                                "class": "next",
+                                "src": "../Images/continue.png"
+                            }).appendTo("#bottom");
+                            $("<img />", {
+                                "align": "right",
+                                "id": "arrow",
+                                "class": "next",
+                                "src": "../Images/arrow.png"
+                            }).appendTo("#bottom");
+                        }
+                    } else {
+                        alert('You have already selected two! Please Proceed');
+                    }
+                    
+                   
+                }
+                
+            }, this));
+            
+        });
+
+    </script>
+    <script type="text/javascript">
+//<![CDATA[
+        window.onload = function () {
+            WebFontConfig = {
+                google: { families: ['Lily+Script+One::latin'] }
+            };
+            (function () {
+                var wf = document.createElement('script');
+                wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })();
+        }//]]>
+
+    </script>
+    <title>Pathify</title>
+</head>
+<body>
+    <h1 class="title" id="head">Pathify</h1>
+    <div id ="main" >
+
+        <img src="Images/pick_two.png" id ="picks" alt="Pick two that interest you!" style="width:275px; height: 90px;" />
+        
+        <script type="text/javascript">
+            $.getJSON("cats.js", function (data) {
+                var items = [];
+                var i = 1;
+                $.each(data, function (key, val) {
+                    items.push("<div id='" + i + "tile" + "' class ='" + "block" + "' style= '" + "background: url(Images/" + val[0] + ".png)" + "'>" + "<p class = '" + "label" + "'>" + key + "</p>" + "<div  id='" + i + "tile" + "' class = '" + "unblock" + "'>" + val[1] + "</div>" + "</div>");
+                    i++;
+                });
+
+                $("<div />", {
+                    "class": "tile",
+                    "id":"menu",
+                    html: items.join("")
+                }).appendTo("#main");
+            });
+    </script>   
+       
+    </div> 
+    
+
+</body>
+</html>
