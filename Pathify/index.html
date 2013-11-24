@@ -20,6 +20,7 @@
         jQuery(document).ready(function () {
             var i = 0;
             var datapoint = new Array();
+            var choices;
             $("#main").bind('click', $.proxy(function (event) {
                 var status = $(event.target).attr('id');
                 
@@ -28,7 +29,10 @@
                     return false;
                 } else if(status == 'picks'){
 
+                } else if (status.indexOf('major') > -1) {
+                    alert("hey bro");
                 } else if (status == 'next') {
+                    //ON CONTINUE
                     var div = document.getElementById("menu");
                     var arr = document.getElementById("arrow");
                     var img = document.getElementById("next");
@@ -45,45 +49,98 @@
                         var temp = new Array();
                         temp.push(results[datapoint[0]][datapoint[1]]);
                         var majors = new Array();
-                        for(var r =)
-                        majors.push(temp[0][0]);
-                        console.log(majors);
-                        for (var j = 0; j < majors.length; j++) {
-                            tiles.push("<div id='" + j + "tile" + "' class ='" + "block" + "' style= '" + "background: url(Images/" + ".png)" + "'>" + "<p class = '" + "label" + "'>" + majors[j] + "</p>" + "</div>");   
+                        for (var r = 0; r < temp[0].length; r++) {
+                            majors.push(temp[0][r]);
                         }
-                        $("<div />", {
-                            "class": "tile",
-                            "id": "menu",
-                            html: tiles.join("")
-                        }).appendTo("#main");
+                        console.log(temp);
+                        console.log(majors);
+                        var codes = new Array();
+                        
+                        $.getJSON("majors.js", function (data) {
+                            
+                            $.each(data, function (key, val) {
+                                
+                                for (var j = 0; j < majors.length; j++) {
+                                    if (key === majors[j]) {
+                                       codes.push(val);
+                                    }
+
+                                }
+                                
+                            });
+                            for (var j = 0; j < majors.length; j++) {
+                                var imagename = codes[j];
+                                imagename = imagename.toLowerCase();
+                                tiles.push("<div id='" + j + "majors" + "' class ='" + "block" + "' style= '" + "background: url(Images/majors/" + imagename + ".jpg); background-size: cover; + margin:auto;" + "'>" + "<p class = '" + "label" + "'>" + majors[j] + " (" + codes[j] + ")" + "</p>" + "</div>");
+                            }
+
+                            $("<div />", {
+                                "class": "tile",
+                                "id": "menu",
+                                "style": "text-align: center",
+                                html: tiles.join("")
+                            }).hide().appendTo("#main").fadeIn();
+                            $("<div />", {
+                                "id": "bottom",
+                            }).hide().appendTo("#main").fadeIn();
+                            $("<img />", {
+                                "align": "left",
+                                "id": "restart",
+                                "class": "next",
+                                "src": "../Images/restart.png",
+                                "style": "cursor:pointer"
+                            }).hide().appendTo("#bottom").fadeIn();
+                        });
+                        
+                       
                     
                     
                 } else {
                     if (i < 2) {
+                        
                       //alert(index);
                         $("#" + status).css("outline", "#39275B solid 5px");
                         var index = parseInt(status) - 1;
                         datapoint.push(index);
                         //console.log(datapoint);
-                        
+                        $.getJSON("cats.js", function (data) {
+                            var select = [];
+                            
+                            $.each(data, function (key, val) {
+                                select.push(key);
+                            });
+                            if (i === 1) {
+                                $("<div />", {
+                                    "id": "bread",
+                                    "class": "next",
+                                    "style":"font-size: 20px;",
+                                    html: "You are interested in " + select[index],
+                                }).hide().appendTo(".title").fadeIn();
+                            }
+                            if (i === 2) {
+                                $("#bread").hide().append(" and " + select[index]).fadeIn(1000);
+                            }
+                        });
                         i++;
                         if (i == 2) {
                             var img = document.getElementById("picks")
-                            img.parentNode.removeChild(img);
+                            $(img).fadeOut();
                             $("<div />", {
                                 "id": "bottom",
-                            }).appendTo("#main");
+                            }).hide().appendTo("#main").fadeIn();
                             $("<img />", {
                                 "align": "left",
                                 "id": "restart",
                                 "class": "next",
-                                "src": "../Images/restart.png"
+                                "src": "../Images/restart.png",
+                                "style": "cursor:pointer"
                             }).appendTo("#bottom");
                             $("<img />", {
                                 "align": "right",
                                 "id": "next",
                                 "class": "next",
-                                "src": "../Images/continue.png"
+                                "src": "../Images/continue.png",
+                                 "style": "cursor:pointer"
                             }).appendTo("#bottom");
                             $("<img />", {
                                 "align": "right",
@@ -125,7 +182,7 @@
     <title>Pathify</title>
 </head>
 <body>
-    <h1 class="title" id="head">Pathify</h1>
+    <h1 class="title" id="head" style="font-size:40px">Pathify</h1>
     <div id ="main" >
 
         <img src="Images/pick_two.png" id ="picks" alt="Pick two that interest you!" style="width:275px; height: 90px;" />
@@ -143,7 +200,7 @@
                     "class": "tile",
                     "id":"menu",
                     html: items.join("")
-                }).appendTo("#main");
+                }).hide().appendTo("#main").fadeIn(1000);
             });
     </script>   
        
