@@ -1,4 +1,4 @@
-﻿body {
+body {
     background-color:#FFF;
     font-family: sans-serif;
 }
@@ -6,12 +6,14 @@
 /*Top data*/
 
 
-h1.title{
-    font-size:35px;
+project{
+    width:100%;
+    font-size:40px;
     color: #000;
     text-align:center;
     font-family: 'Lily Script One', cursive;
     font-weight:300;
+    padding-left: 45%;
 }
 h2.title{
     font-size:40px;
